@@ -1,9 +1,10 @@
 # base defines a base stage that uses the official python runtime base image
 FROM public.ecr.aws/sam/build-python3.11:latest AS base
+RUN cat /etc/os-release || true
 
 # Add curl for healthcheck
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends curl && \
+RUN yum install -y curl && \
+    yum clean all && \
     rm -rf /var/lib/apt/lists/*
 
 # Set the application directory
