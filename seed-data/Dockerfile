@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM public.ecr.aws/primaassicurazioni/python-slim:3.9
 
 # add apache bench (ab) tool
 RUN apt-get update \
