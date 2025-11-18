@@ -15,7 +15,7 @@ spec:
         app: db
     spec:
       containers:
-      - image: postgres:15-alpine
+      - image: public.ecr.aws/docker/library/postgres:trixie
         name: postgres
         env:
         - name: POSTGRES_USER
