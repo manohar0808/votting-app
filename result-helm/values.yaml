@@ -28,6 +28,8 @@ ingress:
 serviceAccount:
   create: true
   name: ""
+  automount: true
+  annotations: {}
 
 httpRoute:
   enabled: false
