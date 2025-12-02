@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "vote-helm.fullname" . }}
+  labels:
+    {{- include "vote-helm.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: vote
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+  selector:
+    app.kubernetes.io/name: {{ include "vote-helm.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}

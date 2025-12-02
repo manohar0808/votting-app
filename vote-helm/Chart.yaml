@@ -1,0 +1,5 @@
+apiVersion: v2
+name: vote-helm
+description: Helm chart for vote service
+version: 0.1.0
+type: application

@@ -1,0 +1,32 @@
+replicaCount: 1
+
+image:
+  repository: 978751494571.dkr.ecr.us-east-1.amazonaws.com/simple-docker-service-12569c20d311
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 80
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "300m"
+    memory: "512Mi"
+
+ingress:
+  enabled: true
+  host: "vote.cloudysupport.info"
+
+labels:
+  app: vote
+
+serviceAccount:
+  create: true
+  name: ""
+  automount: true
+  annotations: {}
