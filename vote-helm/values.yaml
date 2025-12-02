@@ -30,4 +30,3 @@ serviceAccount:
   name: ""
   automount: true
   annotations: {}
-  
