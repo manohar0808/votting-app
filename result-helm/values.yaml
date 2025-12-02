@@ -24,3 +24,7 @@ labels:
 ingress:
   enabled: true
   host: "result.cloudysupport.info"
+
+serviceAccount:
+  create: true
+  name: ""
