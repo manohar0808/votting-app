@@ -15,8 +15,15 @@ spec:
         app: vote
     spec:
       containers:
-      - image: dockersamples/examplevotingapp_vote
+      - image: 978751494571.dkr.ecr.us-east-1.amazonaws.com/simple-docker-service-0e23b58d8e69:latest
         name: vote
         ports:
         - containerPort: 80
           name: vote
+      resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "300m"
+            memory: "512Mi"
