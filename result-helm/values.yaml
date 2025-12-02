@@ -29,6 +29,11 @@ serviceAccount:
   create: true
   name: ""
 
-
 httpRoute:
   enabled: false
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
