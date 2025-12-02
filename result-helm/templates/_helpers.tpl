@@ -16,3 +16,8 @@ Return the ServiceAccount name
 {{ include "result-helm.fullname" . }}
 {{- end }}
 {{- end }}
+
+{{- define "result-helm.labels" -}}
+app.kubernetes.io/name: {{ include "result-helm.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
