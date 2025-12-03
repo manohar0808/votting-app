@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: 978751494571.dkr.ecr.us-east-1.amazonaws.com/simple-docker-service-12569c20d311
+  repository: 978751494571.dkr.ecr.us-east-1.amazonaws.com/simple-docker-service-0e23b58d8e69
   tag: "latest"
   pullPolicy: IfNotPresent
 
