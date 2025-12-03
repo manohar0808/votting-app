@@ -5,13 +5,14 @@ metadata:
   labels:
     {{- include "result-helm.labels" . | nindent 4 }}
   annotations:
-    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/load-balancer-name: k8s-default-resulthe-16f8f593c7   # REUSE existing ALB
+    alb.ingress.kubernetes.io/group.name: result-group             # GROUP to share ALB with vote app
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
-    # Optional: Modify as needed
     alb.ingress.kubernetes.io/backend-protocol: HTTP
 spec:
+  ingressClassName: alb   # FIX: replaces deprecated kubernetes.io/ingress.class
   rules:
     - host: {{ .Values.ingress.host }}
       http:
