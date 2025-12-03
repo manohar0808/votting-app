@@ -1,0 +1,14 @@
+replicaCount: 1
+
+image:
+  repository: 978751494571.dkr.ecr.us-east-1.amazonaws.com/simple-docker-service-12c8c946122f
+  tag: "latest"
+  pullPolicy: Always
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "300m"
+    memory: "512Mi"
