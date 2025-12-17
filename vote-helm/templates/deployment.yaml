@@ -10,6 +10,7 @@ spec:
     matchLabels:
       app.kubernetes.io/name: {{ include "vote-helm.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
+      lablename: vote
   template:
     metadata:
       labels:
