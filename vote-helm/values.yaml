@@ -1,3 +1,4 @@
+
 replicaCount: 1
 
 image:
@@ -12,11 +13,11 @@ service:
 
 resources:
   requests:
-    cpu: "100m"
-    memory: "128Mi"
+    cpu: "0.5"        # Fargate-friendly (0.5 vCPU)
+    memory: "1Gi"     # Fargate-friendly (1 GiB)
   limits:
-    cpu: "300m"
-    memory: "512Mi"
+    cpu: "0.5"
+    memory: "1Gi"
 
 ingress:
   enabled: true
@@ -24,7 +25,7 @@ ingress:
 
 labels:
   app: vote
-  lablename: vote
+  lablesname: vote    # Required for Fargate profile (namespace=vote)
 
 serviceAccount:
   create: true
@@ -33,11 +34,9 @@ serviceAccount:
   annotations: {}
 
 httpRoute:
-  enabled: false
+   enabled: false
 
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 3
-  targetCPUUtilizationPercentage: 80
-
