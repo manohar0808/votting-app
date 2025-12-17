@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -10,11 +11,12 @@ spec:
     matchLabels:
       app.kubernetes.io/name: {{ include "vote-helm.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
-      lablename: vote
+      # IMPORTANT: Do not add lablesname here; selector is immutable on existing Deployments
   template:
     metadata:
       labels:
         {{- include "vote-helm.labels" . | nindent 8 }}
+        lablesname: vote        # <-- Required by your Fargate profile (namespace=vote)
     spec:
       serviceAccountName: {{ include "vote-helm.serviceAccountName" . }}
       containers:
