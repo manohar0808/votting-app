@@ -24,6 +24,7 @@ ingress:
 
 labels:
   app: vote
+  lablename: vote
 
 serviceAccount:
   create: true
